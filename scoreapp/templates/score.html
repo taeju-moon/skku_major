@@ -1,0 +1,78 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-dark">Filter</h6>
+  </div>
+  <div class="card-body">
+    <form action="{% url 'score' %}" method="POST">
+      {% csrf_token %}
+      <select
+        class="form-control form-select-lg mb-3"
+        aria-label=".form-select-lg example"
+        name="accepted"
+      >
+        <option selected value="False">모든 지원자</option>
+        <option value="True">학교인증한 지원자</option>
+      </select>
+      <select
+        class="form-control form-select-lg mb-3"
+        aria-label=".form-select-lg example"
+        name="major"
+      >
+        <option selected value="all">지원학과 선택</option>
+        {% for major in majors %}
+        <option value="{{major}}">{{major}}</option>
+        {% endfor %}
+      </select>
+      <button class="btn btn-secondary" type="submit">제출(Submit)</button>
+    </form>
+  </div>
+</div>
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-dark">Community</h6>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table
+        class="table table-bordered"
+        id="dataTable"
+        width="100%"
+        cellspacing="0"
+      >
+        {% if position %}
+        <h2>나의 등수 {{position.place}} / {{position.people}}</h2>
+        {% endif %}
+        <thead>
+          <tr>
+            <th>College</th>
+            <th>Major</th>
+            <th>학점(전공진입)</th>
+            <th>학점(융합전공진입)</th>
+          </tr>
+        </thead>
+        <tfoot>
+          {% for elem in users %} {% if user.studentID == elem.studentID %}
+          <tr style="border: 2px solid red">
+            <th>{{elem.college}}</th>
+            <th>{{elem.major}}</th>
+            <th>{{elem.gpa}}</th>
+            <th>{{elem.gpa_all}}</th>
+          </tr>
+          {% else %}
+          <tr>
+            <th>{{elem.college}}</th>
+            <th>{{elem.major}}</th>
+            <th>{{elem.gpa}}</th>
+            <th>{{elem.gpa_all}}</th>
+          </tr>
+          {% endif %} {% endfor %}
+        </tfoot>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

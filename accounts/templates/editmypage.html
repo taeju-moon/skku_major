@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-dark">마이페이지(My Page)</h6>
+  </div>
+  <form class="user" method="POST" action="{% url 'editmypage' %}">
+    {% csrf_token %}
+    <table
+      style="
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 20px;
+      "
+    >
+      {{form.as_table}}
+    </table>
+    <div style="display: flex; justify-content: center; margin-bottom: 30px">
+      <input
+        type="submit"
+        style="width: 30%"
+        class="btn btn-secondary btn-user btn-block"
+        value="회원 수정"
+      />
+    </div>
+  </form>
+</div>
+
+{% endblock %}
