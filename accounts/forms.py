@@ -55,7 +55,7 @@ class UserForm(forms.ModelForm):
 class UserEditForm(forms.ModelForm):
     class Meta(UserCreationForm.Meta):
         model = User
-        fields = ('email', 'studentID', 'password',
+        fields = ('email', 'studentID',
                   'name', 'college', 'gpa', 'gpa_all', 'identifier_image', 'major')
 
     def __init__(self, *args, **kwargs):
