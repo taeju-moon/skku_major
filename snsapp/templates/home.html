@@ -66,10 +66,15 @@
   </span>
   <span class="text">글쓰기(Write)</span>
 </a>
-{% endif %} {% endblock %} {% if posts.has_previous %}
-<a href="?page=1">first</a>
-<a href="?page={{posts.previous_page_number}}">before</a>
-{% endif %} {% if posts.has_next %}
-<a href="?page={{posts.next_page_number}}">next</a>
-<a href="{{posts.paginator.num_pages}}">last</a>
 {% endif %}
+<br /><br />
+
+{% if posts.has_previous %}
+<a href="?page=1" class="ml-5">FIRST</a>
+<a href="?page={{posts.previous_page_number}}" class="ml-5">BEFORE</a>
+{% endif %}
+<span>{{posts.number}} / {{posts.paginator.num_pages}}</span>
+{% if posts.has_next %}
+<a href="?page={{posts.next_page_number}}" class="ml-5">NEXT</a>
+<a href="?page={{posts.paginator.num_pages}}" class="ml-5">LAST</a>
+{% endif %} {% endblock %}

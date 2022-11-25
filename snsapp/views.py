@@ -8,20 +8,24 @@ from django.core.paginator import Paginator
 # pagination
 
 
+def about(request):
+    return render(request, "about.html")
+
+
 def home(request):
     if (request.method == "GET" or request.POST["college"] == "ALL"):
         posts = Post.objects.all().order_by("-date")
         paginator = Paginator(posts, 10)
         page = request.GET.get("page")
         final_posts = paginator.get_page(page)
-        return render(request, "index.html", {"posts": final_posts})
+        return render(request, "home.html", {"posts": final_posts})
     else:
         posts = Post.objects.filter(
             college=request.POST["college"]).order_by("-date")
         paginator = Paginator(posts, 10)
         page = request.GET.get("page")
         final_posts = paginator.get_page(page)
-        return render(request, "index.html", {"posts": final_posts})
+        return render(request, "home.html", {"posts": final_posts})
 
 
 def postcreate(request):

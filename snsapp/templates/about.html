@@ -1,0 +1,82 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div class="card shadow mb-4">
+  <div class="card-body" style="color: black; background-color: white">
+    <section
+      style="
+        height: 400px;
+        display: flex;
+        flex-direction: row;
+        border: 4px solid #0c4426;
+        border-radius: 20px;
+        margin-bottom: 45px;
+      "
+    >
+      <div
+        style="
+          background-image: url('../../static/img/yul.png');
+          background-size: cover;
+          width: 400px;
+          height: 400px;
+          margin-left: 20px;
+        "
+      ></div>
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          width: 70%;
+        "
+      >
+        <h1 style="font-size: 45px">계열제 새내기를 위한 점수비교 플랫폼</h1>
+        <h1 style="font-size: 45px">SKKU MAJOR</h1>
+      </div>
+    </section>
+
+    <div>
+      <h3 style="margin-bottom: 30px">SKKU MAJOR에 오신 것을 환영합니다!!</h3>
+      <p>SKKU MAJOR는 전공진입을 앞둔 신입생 분들을 위한 서비스입니다.</p>
+      <p>
+        여러분의 성적을 직접 입력해 계열제 및 융합전공 진입에 필요한 여러분의
+        학점을 확인할 수도 있고,
+      </p>
+      <p>여러분의 성적을 같은 학과에 지원한 학생들과 비교할 수도 있습니다.</p>
+      <p>
+        또한 전공진입에 관련된 다양한 이야기들을 나눌 커뮤니티 또한 마련하고
+        있습니다.
+      </p>
+      <p>
+        SKKU MAJOR에서 유익한 시간 보내시기 바랍니다. 문의사항은
+        pp2lycee@naver.com으로 주세요.
+      </p>
+    </div>
+
+    <hr style="background-color: #0c4426; height: 2px" />
+
+    <div
+      style="
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+        margin-top: 40px;
+      "
+    >
+      <h3 style="margin-bottom: 30px">Welcome to SKKU MAJOR</h3>
+      <p>SKKU MAJOR is a service for freshmen who is to choose their major.</p>
+      <p>
+        You can write your score and calculate the avergae GPA for normal majors
+        and integrated majors,
+      </p>
+      <p>
+        but also compare with score with other students who want to apply the
+        same major.
+      </p>
+      <p>
+        You can also join the community for each for college and free community.
+      </p>
+      <p>If you have any questions, contact here -> pp2lycee@naver.com</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

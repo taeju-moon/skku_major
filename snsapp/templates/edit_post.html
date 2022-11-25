@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% block content %}
-<h1>글 수정</h1>
+<h1>글 수정(Revise)</h1>
 <form
   action="{% url 'post_edit' post_id %}"
   method="POST"
@@ -9,6 +9,6 @@
   <table>
     {{form.as_table}}
   </table>
-  <button type="submit" class="btn btn-secondary">제출</button>
+  <button type="submit" class="btn btn-secondary">제출(Submit)</button>
 </form>
 {% endblock %}

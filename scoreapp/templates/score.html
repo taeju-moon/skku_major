@@ -12,15 +12,15 @@
         aria-label=".form-select-lg example"
         name="accepted"
       >
-        <option selected value="False">모든 지원자</option>
-        <option value="True">학교인증한 지원자</option>
+        <option selected value="False">모든 지원자(All)</option>
+        <option value="True">학교인증한 지원자(Only Verificated)</option>
       </select>
       <select
         class="form-control form-select-lg mb-3"
         aria-label=".form-select-lg example"
         name="major"
       >
-        <option selected value="all">지원학과 선택</option>
+        <option selected value="all">지원학과 선택(Choose Major)</option>
         {% for major in majors %}
         <option value="{{major}}">{{major}}</option>
         {% endfor %}
@@ -42,7 +42,7 @@
         cellspacing="0"
       >
         {% if position %}
-        <h2>나의 등수 {{position.place}} / {{position.people}}</h2>
+        <h2>나의 등수(My place) {{position.place}} / {{position.people}}</h2>
         {% endif %}
         <thead>
           <tr>
@@ -54,7 +54,7 @@
         </thead>
         <tfoot>
           {% for elem in users %} {% if user.studentID == elem.studentID %}
-          <tr style="border: 2px solid red">
+          <tr style="border: 2px solid rgb(12, 68, 38)">
             <th>{{elem.college}}</th>
             <th>{{elem.major}}</th>
             <th>{{elem.gpa}}</th>

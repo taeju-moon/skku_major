@@ -15,17 +15,19 @@ class PostForm(forms.ModelForm):
             "placeholder": "글 제목을 입력하세요",
             "rows": 20,
         }
+        self.fields["title"].label = "제목(title)"
         self.fields["body"].widget.attrs = {
             "class": "form-control",
-            "placeholder": "글 제목을 입력하세요",
             "rows": 20,
             "cols": 100,
         }
+        self.fields["body"].label = "내용(body)"
 
         self.fields["college"].widget.attrs = {
             "class": "form-control",
             "rows": 10,
         }
+        self.fields["college"].label = "학부대학(college)"
 
 
 class CommentForm(forms.ModelForm):

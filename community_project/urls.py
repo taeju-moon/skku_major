@@ -22,7 +22,8 @@ from scoreapp import views as scoreapp_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name="home"),
+    path('', views.about, name="about"),
+    path('home', views.home, name="home"),
     path('postcreate', views.postcreate, name="postcreate"),
     path("post_edit/<int:post_id>", views.postedit, name="post_edit"),
     path("post_delete/<int:post_id>", views.post_delete, name="post_delete"),

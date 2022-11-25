@@ -8,11 +8,13 @@
   {% if post.writer == user %}
   <div style="display: flex; flex-direction: row">
     <a href="{% url 'post_edit' post.id %}" style="margin-right: 10px">
-      <button type="submit" class="btn btn-secondary mt-3">수정</button></a
+      <button type="submit" class="btn btn-secondary mt-3">
+        수정(Edit)
+      </button></a
     >
     <form action="{% url 'post_delete' post.id %}" method="POST">
       {% csrf_token %}
-      <button type="submit" class="btn btn-secondary mt-3">삭제</button>
+      <button type="submit" class="btn btn-secondary mt-3">삭제(Delete)</button>
     </form>
   </div>
   {% endif %}
@@ -33,7 +35,7 @@
   >
     <form action="{% url 'comment_delete' comment.id post.id %}" method="POST">
       {% csrf_token %}
-      <button type="submit" class="btn btn-secondary mt-3">삭제</button>
+      <button type="submit" class="btn btn-secondary mt-3">삭제(Delete)</button>
     </form>
   </div>
   {% endif %}
@@ -43,6 +45,6 @@
 <!--댓글 입력-->
 <form method="POST" action="{% url 'create_comment' post.id %}">
   {% csrf_token %} {{comment_form}}
-  <button type="submit" class="btn btn-secondary mt-3">제출</button>
+  <button type="submit" class="btn btn-secondary mt-3">제출(Submit)</button>
 </form>
 {% endif %} {% endblock %}

@@ -25,7 +25,7 @@
     />
 
     <!-- Custom styles for this template-->
-    <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/sb-admin-2.css' %}" rel="stylesheet" />
   </head>
 
   <body id="page-top">
@@ -39,7 +39,7 @@
         <!-- Sidebar - Brand -->
         <a
           class="sidebar-brand d-flex align-items-center justify-content-center"
-          href="{% url 'home' %}"
+          href="{% url 'about' %}"
         >
           <div class="sidebar-brand-text mx-3">SKKU_MAJOR <sup>ver0</sup></div>
         </a>
@@ -49,23 +49,26 @@
 
         <!-- Nav Item - Charts -->
         <li class="nav-item">
+          <a class="nav-link" href="{% url 'about' %}">
+            <span>| 스꾸메이저 소개(About)</span></a
+          >
+        </li>
+
+        <li class="nav-item">
           <a class="nav-link" href="{% url 'home' %}">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>익명게시판(Community)</span></a
+            <span>| 익명게시판(Community)</span></a
           >
         </li>
 
         <li class="nav-item">
           <a class="nav-link" href="{% url 'score' %}">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>점수보기(Score)</span></a
+            <span>| 점수보기(Score)</span></a
           >
         </li>
 
         <li class="nav-item">
           <a class="nav-link" href="{% url 'mypage' %}">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>마이페이지(My Page)</span></a
+            <span>| 마이페이지(My Page)</span></a
           >
         </li>
 
@@ -99,43 +102,6 @@
 
             <!-- Topbar Navbar -->
             <ul class="navbar-nav ml-auto">
-              <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-              <li class="nav-item dropdown no-arrow d-sm-none">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="searchDropdown"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <i class="fas fa-search fa-fw"></i>
-                </a>
-                <!-- Dropdown - Messages -->
-                <div
-                  class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                  aria-labelledby="searchDropdown"
-                >
-                  <form class="form-inline mr-auto w-100 navbar-search">
-                    <div class="input-group">
-                      <input
-                        type="text"
-                        class="form-control bg-light border-0 small"
-                        placeholder="Search for..."
-                        aria-label="Search"
-                        aria-describedby="basic-addon2"
-                      />
-                      <div class="input-group-append">
-                        <button class="btn btn-dark" type="button">
-                          <i class="fas fa-search fa-sm"></i>
-                        </button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </li>
-
               <li class="p-3">
                 {% if user.is_authenticated %}
                 <a href="{% url 'logout' %}" class="btn btn-secondary"
@@ -185,7 +151,8 @@
         <footer class="sticky-footer bg-white">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
-              <span>Copyright &copy; Your Website 2021</span>
+              <div>SKKU MAJOR</div>
+              <span>문의사항은 pp2lycee@naver.com으로 보내주세요</span>
             </div>
           </div>
         </footer>
@@ -200,43 +167,6 @@
       <i class="fas fa-angle-up"></i>
     </a>
 
-    <!-- Logout Modal-->
-    <div
-      class="modal fade"
-      id="logoutModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-            <button
-              class="close"
-              type="button"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            Select "Logout" below if you are ready to end your current session.
-          </div>
-          <div class="modal-footer">
-            <button
-              class="btn btn-secondary"
-              type="button"
-              data-dismiss="modal"
-            >
-              Cancel
-            </button>
-            <a class="btn btn-dark" href="">Logout</a>
-          </div>
-        </div>
-      </div>
     </div>
 
     <!-- Bootstrap core JavaScript-->
