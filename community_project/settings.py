@@ -26,7 +26,8 @@ SECRET_KEY = my_settings.secret_key
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "http://ec2-54-180-160-48.ap-northeast-2.compute.amazonaws.com"]
 
 
 # Application definition
