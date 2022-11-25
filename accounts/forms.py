@@ -39,12 +39,12 @@ class UserForm(forms.ModelForm):
         self.fields["gpa"].widget.attrs = {
             "class": "form-control",
             "rows": 10,
-            "step": 0.1,
+            "step": 0.01,
         }
         self.fields["gpa_all"].widget.attrs = {
             "class": "form-control",
             "rows": 10,
-            "step": 0.1,
+            "step": 0.01,
         }
         self.fields["identifier_image"].widget.attrs = {
             "class": "form-control",
@@ -70,9 +70,6 @@ class UserEditForm(forms.ModelForm):
             "rows": 15,
         }
 
-        # hide password input
-        self.fields["password"].widget = forms.HiddenInput()
-
         self.fields["name"].widget.attrs = {
             "class": "form-control",
             "rows": 15,
@@ -84,12 +81,12 @@ class UserEditForm(forms.ModelForm):
         self.fields["gpa"].widget.attrs = {
             "class": "form-control",
             "rows": 10,
-            "step": 0.1,
+            "step": 0.01,
         }
         self.fields["gpa_all"].widget.attrs = {
             "class": "form-control",
             "rows": 10,
-            "step": 0.1,
+            "step": 0.01,
         }
         self.fields["identifier_image"].widget.attrs = {
             "class": "form-control",

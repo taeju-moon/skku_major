@@ -1,30 +1,48 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
 <div class="border rounded p-1 mb-5">
-<h1>{{post.title}}</h1>
-<p>{{post.date}}</p>
+  <h1>{{post.title}}</h1>
+  <p>{{post.date}}</p>
 
-
-<p class="mb-5 fs-4">
-    {{post.body}}
-</p>
+  <p class="mb-5 fs-4">{{post.body}}</p>
+  {% if post.writer == user %}
+  <div style="display: flex; flex-direction: row">
+    <a href="{% url 'post_edit' post.id %}" style="margin-right: 10px">
+      <button type="submit" class="btn btn-secondary mt-3">수정</button></a
+    >
+    <form action="{% url 'post_delete' post.id %}" method="POST">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-secondary mt-3">삭제</button>
+    </form>
+  </div>
+  {% endif %}
 </div>
 <!--댓글 목록-->
 
 {% for comment in post.comment_set.all %}
-    <p>{{comment.comment}}</p>
-    <hr>
-{% endfor %}
-
-
-{% if user.is_authenticated %}
+<div style="display: flex; flex-direction: row; height: 40px">
+  <div style="width: 80%">{{comment.comment}}</div>
+  {% if comment.writer == user %}
+  <div
+    style="
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      width: 20%;
+    "
+  >
+    <form action="{% url 'comment_delete' comment.id post.id %}" method="POST">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-secondary mt-3">삭제</button>
+    </form>
+  </div>
+  {% endif %}
+</div>
+<hr />
+{% endfor %} {% if user.is_authenticated %}
 <!--댓글 입력-->
 <form method="POST" action="{% url 'create_comment' post.id %}">
-    {% csrf_token %}
-    {{comment_form}}
-    <button type="submit" class="btn btn-secondary mt-3">제출</button>
+  {% csrf_token %} {{comment_form}}
+  <button type="submit" class="btn btn-secondary mt-3">제출</button>
 </form>
-{% endif %}
-
-{% endblock %}
+{% endif %} {% endblock %}

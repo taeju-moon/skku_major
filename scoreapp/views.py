@@ -27,6 +27,8 @@ def is_in_users(user, users):
 
 
 def home(request):
+    if not request.user.is_authenticated:
+        return redirect("login")
     if request.method == "GET":
         return render(request, "score.html", {"majors": majors})
     else:

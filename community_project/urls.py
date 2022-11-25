@@ -24,9 +24,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name="home"),
     path('postcreate', views.postcreate, name="postcreate"),
+    path("post_edit/<int:post_id>", views.postedit, name="post_edit"),
+    path("post_delete/<int:post_id>", views.post_delete, name="post_delete"),
     path('detail/<int:post_id>', views.detail, name="detail"),
     path("create_comment/<int:post_id>",
          views.create_comment, name="create_comment"),
+    path("comment_delete/<int:comment_id>/<int:post_id>",
+         views.delete_comment, name="comment_delete"),
 
     path("login", accounts_views.login, name="login"),
     path("logout", accounts_views.logout, name="logout"),

@@ -1,6 +1,28 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 
-<!-- DataTales Example -->
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-dark">Filter</h6>
+  </div>
+  <div class="card-body">
+    <form action="{% url 'home' %}" method="POST">
+      {% csrf_token %}
+      <select
+        class="form-control form-select-lg mb-3"
+        aria-label=".form-select-lg example"
+        name="college"
+      >
+        <option selected value="ALL">모두(ALL)</option>
+        <option value="인문과학계열">인문과학계열(Humanity)</option>
+        <option value="사회과학계열">사회과학계열(Society)</option>
+        <option value="자연과학계열">자연과학계열(Science)</option>
+        <option value="공학계열">공학계열(Enginnering)</option>
+        <option value="자유게시판">자유게시판(Free)</option>
+      </select>
+      <button class="btn btn-secondary" type="submit">제출(Submit)</button>
+    </form>
+  </div>
+</div>
 <div class="card shadow mb-4">
   <div class="card-header py-3">
     <h6 class="m-0 font-weight-bold text-dark">Community</h6>
@@ -42,6 +64,12 @@
   <span class="icon text-white-50">
     <i class="fas fa-flag"></i>
   </span>
-  <span class="text">글쓰기</span>
+  <span class="text">글쓰기(Write)</span>
 </a>
-{% endif %} {% endblock %}
+{% endif %} {% endblock %} {% if posts.has_previous %}
+<a href="?page=1">first</a>
+<a href="?page={{posts.previous_page_number}}">before</a>
+{% endif %} {% if posts.has_next %}
+<a href="?page={{posts.next_page_number}}">next</a>
+<a href="{{posts.paginator.num_pages}}">last</a>
+{% endif %}

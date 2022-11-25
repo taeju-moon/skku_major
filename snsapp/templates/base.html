@@ -39,7 +39,7 @@
         <!-- Sidebar - Brand -->
         <a
           class="sidebar-brand d-flex align-items-center justify-content-center"
-          href=""
+          href="{% url 'home' %}"
         >
           <div class="sidebar-brand-text mx-3">SKKU_MAJOR <sup>ver0</sup></div>
         </a>
@@ -47,28 +47,25 @@
         <!-- Divider -->
         <hr class="sidebar-divider my-0" />
 
-        <!-- Heading -->
-        <div class="sidebar-heading">Interface</div>
-
         <!-- Nav Item - Charts -->
         <li class="nav-item">
           <a class="nav-link" href="{% url 'home' %}">
             <i class="fas fa-fw fa-chart-area"></i>
-            <span>익명게시판</span></a
+            <span>익명게시판(Community)</span></a
           >
         </li>
 
         <li class="nav-item">
           <a class="nav-link" href="{% url 'score' %}">
             <i class="fas fa-fw fa-chart-area"></i>
-            <span>점수보기</span></a
+            <span>점수보기(Score)</span></a
           >
         </li>
 
         <li class="nav-item">
           <a class="nav-link" href="{% url 'mypage' %}">
             <i class="fas fa-fw fa-chart-area"></i>
-            <span>마이페이지</span></a
+            <span>마이페이지(My Page)</span></a
           >
         </li>
 
@@ -99,27 +96,6 @@
             >
               <i class="fa fa-bars"></i>
             </button>
-
-            <!-- Topbar Search -->
-            <form
-              method="GET"
-              action=""
-              class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
-            >
-              <div class="input-group">
-                <input
-                  type="text"
-                  name="search"
-                  class="form-control bg-light border-0 small"
-                  placeholder="Search for..."
-                  aria-label="Search"
-                  aria-describedby="basic-addon2"
-                />
-                <div class="input-group-append">
-                  <input type="submit" class="btn btn-dark" />
-                </div>
-              </div>
-            </form>
 
             <!-- Topbar Navbar -->
             <ul class="navbar-nav ml-auto">
@@ -163,10 +139,10 @@
               <li class="p-3">
                 {% if user.is_authenticated %}
                 <a href="{% url 'logout' %}" class="btn btn-secondary"
-                  >로그아웃</a
+                  >Logout</a
                 >
                 {% else %}
-                <a href="{% url 'login' %}" class="btn btn-secondary">로그인</a>
+                <a href="{% url 'login' %}" class="btn btn-secondary">Login</a>
                 {% endif %}
               </li>
 
