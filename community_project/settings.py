@@ -9,9 +9,10 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
-from pathlib import Path
 from community_project import my_settings
+from pathlib import Path
+import mimetypes
+mimetypes.add_type("text/css", ".css", True)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,7 +28,7 @@ SECRET_KEY = my_settings.secret_key
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    my_settings.host]
+    my_settings.host, "127.0.0.1"]
 
 
 # Application definition
