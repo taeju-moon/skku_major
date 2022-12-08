@@ -15,8 +15,8 @@
       {% else %}
       <p>학교인증(not accepted): 미완료</p>
       {% endif %}
-      <p>학점(gpa): {{user.gpa}}</p>
-      <p>학점전체(gpa_all): {{user.gpa_all}}</p>
+      <p>학점 - 계열진입(gpa_for_normal): {{user.gpa}}</p>
+      <p>학점 - 융합전공진입(gpa_for_convergence_major): {{user.gpa_all}}</p>
       <p>모의지원학과(major): {{user.major}}</p>
     </div>
     <a href="{% url 'editmypage' %}">

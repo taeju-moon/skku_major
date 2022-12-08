@@ -12,7 +12,7 @@ class College(models.TextChoices):
     ENGINNERING = '공학계열', _('공학계열(ENGINNERING)')
     FREE = '자유게시판', _('자유게시판(FREE)')
 
-# 게시글 모델(익명게시판)
+# Post Model
 
 
 class Post(models.Model):
@@ -31,7 +31,7 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
-# 댓글 모델(익명게시판)
+# Comment Model
 
 
 class Comment(models.Model):
